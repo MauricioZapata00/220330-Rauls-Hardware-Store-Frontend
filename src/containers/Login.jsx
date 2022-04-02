@@ -3,13 +3,18 @@ import '../App.css';
 import Google from '../assets/img/googleLogo.jpg';
 import GitHub from '../assets/img/GitHubLogo.png'
 import { auth, db } from "../firebase/credentials";
-import { getFirestore, doc, collection, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { setEnteringUser } from "../redux/actions/UserActions";
 
 const Login = () => {
     const authentication = auth;
     const firestore = db;
     const [registered, setRegistered] = useState(false);
+    //const usuario = useSelector((state) => [state.email]);
+    const dispatch = useDispatch()
+    
 
     const registrarUsuario = async(email, password) => {
         const infoUser = await createUserWithEmailAndPassword(authentication,
@@ -19,10 +24,17 @@ const Login = () => {
             }).then((firestoreUser) => {
                 return firestoreUser
         })
-        console.log(infoUser.user.uid);
+        //console.log(infoUser.user.uid);
         const docuRef = doc(firestore, `raulsHardwareStore/${infoUser.user.uid}`);
         setDoc(docuRef, { correo: email, uid: infoUser.user.uid });
+        console.log(infoUser);
+        dispatch(setEnteringUser([infoUser.user.email]));
+    }
 
+    const LogedUser = async(email, password) =>{
+        const infoLogedUser = await signInWithEmailAndPassword(authentication, email, password)
+        dispatch(setEnteringUser([infoLogedUser.user.email]));
+        
     }
 
     const accessUser = async (e) => {
@@ -37,7 +49,7 @@ const Login = () => {
         //console.log(registered);
         switch (registered) {
             case true:
-                signInWithEmailAndPassword(authentication, email, password)
+                LogedUser(email, password)
                 break;
             case false:
                 registrarUsuario(email, password);

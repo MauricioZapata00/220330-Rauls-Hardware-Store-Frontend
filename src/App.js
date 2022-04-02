@@ -6,8 +6,13 @@ import Home from './containers/Home';
 import Login from './containers/Login';
 import Operations from './containers/Operations';
 import Alarms from './containers/Alarms';
+import { useDispatch } from 'react-redux';
+import { setEnteringUser } from './redux/actions/UserActions';
+
 
 function App() {
+  const dispatch = useDispatch();
+  dispatch(setEnteringUser([]))
   return (
     <div className="App">
       <Header />
