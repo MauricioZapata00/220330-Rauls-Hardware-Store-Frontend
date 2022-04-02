@@ -1,11 +1,8 @@
 import React from "react";
 import IndexImage from "../assets/img/logo.jpg"
-import firebaseApp from "../firebase/credentials"
-import {getAuth} from "firebase/auth"
 import '../App.css';
 import "../assets/styles/style.css"
 
-const auth = getAuth(firebaseApp)
 
 const Home = () =>{
     return(

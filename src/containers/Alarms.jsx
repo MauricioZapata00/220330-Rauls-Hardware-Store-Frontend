@@ -1,11 +1,11 @@
 import React from "react";
 
-const Login = () =>{
+const Alarms = () => {
     return(
         <div>
-            <h1>Logueo</h1>
+            <h1>Alarmas</h1>
         </div>
     )
 }
 
-export default Login;
+export default Alarms;
