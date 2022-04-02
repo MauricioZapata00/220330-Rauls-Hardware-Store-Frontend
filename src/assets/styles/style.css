@@ -11,4 +11,23 @@
     top: 110%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
+
+.center-block {
+    display: table;
+    margin-top: 1.5%;  /* Instead of display:block */
+    margin-left: auto;
+    margin-right: auto;
+}
+.boton-login{
+    display: flex;
+}
+.icon{
+    flex: 1 1 auto;
+    max-width: 10%;
+}
+
+.login{
+    flex: 1 1 auto;
+    margin-top: 2.5%;
+}

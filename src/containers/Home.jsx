@@ -14,8 +14,7 @@ const Home = () =>{
                     <p>Ve a la pestaña de logueo para registrarte o iniciar sesión</p>
                 </div>
             </div>
-            <button type="button" className="btn btn-secondary">Registro</button>
-            <button type="button" className="btn btn-success">Login</button>
+            
         </div>
     )
 }
