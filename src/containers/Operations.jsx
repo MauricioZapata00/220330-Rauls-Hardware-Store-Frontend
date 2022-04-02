@@ -1,9 +1,19 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Operations = () => {
-    return(
+    const usuario = useSelector((state) => state.theUser.user)
+    return (
         <div>
-            <h1>Operaciones</h1>
+            {usuario.length === 0 ? (
+                <div>
+                    <h1>No te has logueado</h1>
+                </div>
+            ) : (
+                <div>
+                    <h1>Operaciones</h1>
+                </div>
+            )}
         </div>
     )
 }

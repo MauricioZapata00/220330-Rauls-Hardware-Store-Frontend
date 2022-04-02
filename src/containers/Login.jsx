@@ -12,7 +12,7 @@ const Login = () => {
     const authentication = auth;
     const firestore = db;
     const [registered, setRegistered] = useState(false);
-    //const usuario = useSelector((state) => [state.email]);
+    const usuario = useSelector((state) => state.theUser.user);
     const dispatch = useDispatch()
     
 

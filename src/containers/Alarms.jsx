@@ -1,9 +1,19 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Alarms = () => {
-    return(
+    const usuario = useSelector((state) => state.theUser.user)
+    return (
         <div>
-            <h1>Alarmas</h1>
+            {usuario.length === 0 ? (
+                <div>
+                    <h1>No te has logueado</h1>
+                </div>
+            ) : (
+                <div>
+                    <h1>Alarmas</h1>
+                </div>
+            )}
         </div>
     )
 }
