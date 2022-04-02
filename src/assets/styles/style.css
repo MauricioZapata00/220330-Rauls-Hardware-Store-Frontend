@@ -1,0 +1,14 @@
+.ImagenInicial {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.centrado {
+    color: #fff;
+    font-size: 200%;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
