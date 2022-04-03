@@ -6,11 +6,25 @@ const BillsComponent = () => {
 
     const bills = useSelector((state) => state.allBills.bills);
 
-    const downloadPdf = (bill) =>{
+    const downloadPdf = (bill) => {
         const document = new jsPDF();
         let text = "";
-        Array.from(Object.fromEntries(bill)).map((tag) =>{
-            text += (tag + "\n")
+        const arrayOfValues = Object.values(bill);
+        let counter = 0;
+        let arrayOfKeyProducts = Object.keys(bill.productos)
+        let arrayOfValueProducts = Object.values(bill.productos)
+        let counter2 = 0;
+        Object.keys(bill).map((tag) => {
+            if (counter === 3) {
+                arrayOfKeyProducts.map((product) => {
+                    text += (tag + " :\t" + product + ":\t" + arrayOfValueProducts[counter2] + "\n")
+                    counter2 += 1
+                })
+                counter +=1
+            } else {
+                text += (tag + " :\t" + arrayOfValues[counter] + "\n")
+                counter += 1
+            }
         })
         document.text(text, 10, 10);
         document.save("Factura Fecha: " + bill.fecha + ".pdf")
