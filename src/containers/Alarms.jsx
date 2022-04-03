@@ -12,6 +12,16 @@ const Alarms = () => {
             ) : (
                 <div>
                     <h1>Alarmas</h1>
+                    <div className="center-block">
+                        <div className="alert alert-success" role="alert">
+                            A simple success alert—check it out!
+                            <input type="number" min="0" className="button-alarm"></input>
+                        </div>
+                        <div className="alert alert-danger" role="alert">
+                            A simple danger alert—check it out!
+                            <input type="number" min="0" className="button-alarm"></input>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>
