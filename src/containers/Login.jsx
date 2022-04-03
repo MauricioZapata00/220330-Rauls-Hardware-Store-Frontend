@@ -4,7 +4,7 @@ import Google from '../assets/img/googleLogo.jpg';
 import GitHub from '../assets/img/GitHubLogo.png'
 import { auth, db } from "../firebase/credentials";
 import { doc, setDoc } from "firebase/firestore";
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setEnteringUser } from "../redux/actions/UserActions";
 
@@ -64,6 +64,8 @@ const Login = () => {
 
     const googleProvider = new GoogleAuthProvider();
 
+    const githubProvider = new GithubAuthProvider();
+
     const LogWitGoogle = () =>{
         signInWithPopup(authentication, googleProvider).catch((error) => {
             console.log(error);
@@ -72,6 +74,16 @@ const Login = () => {
             dispatch(setEnteringUser([google.user.email]))
             return google;
         });
+    }
+
+    const LogWithGitHub = () => {
+        signInWithPopup(authentication, githubProvider).catch((error) => {
+            console.log(error);
+        }).then((github) => {
+            console.log(github);
+            dispatch(setEnteringUser([github.user.email]))
+            return github;
+        })
     }
 
     return (
@@ -107,7 +119,7 @@ const Login = () => {
                     </button>
                 </div>
                 <div className="center-block">
-                    <button type="submit" className="btn btn-dark">
+                    <button type="submit" className="btn btn-dark" onClick={() => LogWithGitHub()}>
                         <div className="boton-login">
                             <img src={GitHub} className="icon" alt="GitHub" />
                             <div className="login">
