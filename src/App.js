@@ -8,6 +8,7 @@ import Operations from './containers/Operations';
 import Alarms from './containers/Alarms';
 import { useDispatch } from 'react-redux';
 import { setEnteringUser } from './redux/actions/UserActions';
+import Bills from './containers/Bills';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/operations' element={<Operations />}/>
         <Route path='/alarms' element={<Alarms />}/>
+        <Route path='/bills' element={<Bills />}/>
       </Routes>
     </div>
   );

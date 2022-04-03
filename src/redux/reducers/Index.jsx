@@ -4,7 +4,7 @@ import { UserReducer } from "./UserReducer";
 
 const reducers = combineReducers({
     theUser: UserReducer,
-    bills: BillsReducer,
+    allBills: BillsReducer,
 });
 
 export default reducers;
