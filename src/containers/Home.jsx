@@ -2,12 +2,20 @@ import React from "react";
 import IndexImage from "../assets/img/logo.jpg"
 import '../App.css';
 import "../assets/styles/style.css"
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../firebase/credentials";
+import { signOut } from "firebase/auth";
+import { setEnteringUser } from "../redux/actions/UserActions";
 
 const Home = () => {
-    const usuario = useSelector((state) => state.theUser.user)
-    console.log(usuario)
+    const authentication = auth;
+    const usuario = useSelector((state) => state.theUser.user);
+    const dispatch = useDispatch();
+    //console.log(usuario)
+    const LogOut = () => {
+        signOut(authentication);
+        dispatch(setEnteringUser([]));
+    }
     return (
         <div>
             {usuario.length === 0 ? (
@@ -27,6 +35,12 @@ const Home = () => {
                         <div className="centrado">
                             <p>Ya estás logueado</p>
                         </div>
+                        <div className="center-block">
+                            <div className="centrado">
+                                <button type="button" id="logout" className="btn btn-light" onClick={() => LogOut()}>Log Out</button>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             )}
