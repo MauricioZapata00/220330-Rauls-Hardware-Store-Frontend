@@ -21,10 +21,11 @@ const Operations = () => {
                                         Facturas
                                     </NavLink>
                                 </li>
-                                <li className="page-item"><a className="page-link">1</a></li>
-                                <li className="page-item"><a className="page-link" href="#">2</a></li>
-                                <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                <li className="page-item"><a className="page-link" href="#">Next</a></li>
+                                <li className="page-item"><a className="page-link">Clientes</a></li>
+                                <li className="page-item"><a className="page-link" href="#">Productos</a></li>
+                                <li className="page-item"><a className="page-link" href="#">Proveedores</a></li>
+                                <li className="page-item"><a className="page-link" href="#">Vendedores</a></li>
+                                <li className="page-item"><a className="page-link" href="#">Volantes</a></li>
                             </ul>
                         </nav>
                     </div>

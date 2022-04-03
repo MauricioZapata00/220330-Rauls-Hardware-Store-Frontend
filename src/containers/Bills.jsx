@@ -5,7 +5,6 @@ import { setBills } from "../redux/actions/BillsActions";
 
 const Bills = () => {
 
-    
     const dispatch = useDispatch()
 
     const getAllBills = async () => {
@@ -23,7 +22,7 @@ const Bills = () => {
             <h1>
                 Facturas
             </h1>
-            <BillsComponent />
+            <BillsComponent /> 
         </div>
     )
 }
