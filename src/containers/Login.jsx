@@ -4,7 +4,7 @@ import Google from '../assets/img/googleLogo.jpg';
 import GitHub from '../assets/img/GitHubLogo.png'
 import { auth, db } from "../firebase/credentials";
 import { doc, setDoc } from "firebase/firestore";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setEnteringUser } from "../redux/actions/UserActions";
 
@@ -62,6 +62,18 @@ const Login = () => {
         dispatch(setEnteringUser([]));
     }
 
+    const googleProvider = new GoogleAuthProvider();
+
+    const LogWitGoogle = () =>{
+        signInWithPopup(authentication, googleProvider).catch((error) => {
+            console.log(error);
+        }).then((google) => {
+            console.log(google);
+            dispatch(setEnteringUser([google.user.email]))
+            return google;
+        });
+    }
+
     return (
         <div>
             {usuario.length === 0 ? (
@@ -85,9 +97,9 @@ const Login = () => {
                     </button>
                 </form>
                 <div className="center-block">
-                    <button type="submit" className="btn btn-success">
+                    <button type="submit" className="btn btn-success" onClick={() => LogWitGoogle()}>
                         <div className="boton-login">
-                            <img src={Google} className="icon" alt="Google" />
+                            <img src={Google} className="icon" alt="Google"/>
                             <div className="login">
                                 Login con Google
                             </div>
