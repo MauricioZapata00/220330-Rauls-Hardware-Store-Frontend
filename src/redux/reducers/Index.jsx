@@ -4,6 +4,7 @@ import { CustomersReducer } from "./CustomersReducer";
 import { EmployeesReducer } from "./EmployeesReducer";
 import { ProductsReducer } from "./ProductsReducer";
 import { SuppliersReducer } from "./SuppliersReducer";
+import { TicketsReducer } from "./TicketsReducer";
 import { UserReducer } from "./UserReducer";
 
 const reducers = combineReducers({
@@ -13,6 +14,7 @@ const reducers = combineReducers({
     allProducts: ProductsReducer,
     allSuppliers: SuppliersReducer,
     allEmployees: EmployeesReducer,
+    allTickets: TicketsReducer, 
 });
 
 export default reducers;
