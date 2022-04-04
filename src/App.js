@@ -9,6 +9,7 @@ import Alarms from './containers/Alarms';
 import { useDispatch } from 'react-redux';
 import { setEnteringUser } from './redux/actions/UserActions';
 import Bills from './containers/Bills';
+import CreateBillComponent from './components/CreateBillComponent';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/operations' element={<Operations />}/>
         <Route path='/alarms' element={<Alarms />}/>
         <Route path='/bills' element={<Bills />}/>
+        <Route path='/createBill' element={<CreateBillComponent />}/>
       </Routes>
     </div>
   );

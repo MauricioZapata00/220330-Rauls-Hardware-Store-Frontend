@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { jsPDF } from "jspdf";
+import { NavLink } from "react-router-dom";
 
 const BillsComponent = () => {
 
@@ -57,6 +58,11 @@ const BillsComponent = () => {
                     ) : (
                         <div className="row">
                             {renderedListOfBills}
+                            <div>
+                                <NavLink to="/createBill" className="nav-link">
+                                    <button type="button" className="btn btn-success">Crear Factura</button>
+                                </NavLink>
+                            </div>
                         </div>
                     )
                 }
