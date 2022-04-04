@@ -21,11 +21,31 @@ const Operations = () => {
                                         Facturas
                                     </NavLink>
                                 </li>
-                                <li className="page-item"><a className="page-link">Clientes</a></li>
-                                <li className="page-item"><a className="page-link" href="#">Productos</a></li>
-                                <li className="page-item"><a className="page-link" href="#">Proveedores</a></li>
-                                <li className="page-item"><a className="page-link" href="#">Vendedores</a></li>
-                                <li className="page-item"><a className="page-link" href="#">Volantes</a></li>
+                                <li className="page-item">
+                                    <NavLink to="/customers" className="nav-link">
+                                        Clientes
+                                    </NavLink>
+                                </li>
+                                <li className="page-item">
+                                    <NavLink to="/products" className="nav-link">
+                                        Productos
+                                    </NavLink>
+                                </li>
+                                <li className="page-item">
+                                    <NavLink to="/suppliers" className="nav-link">
+                                        Proveedores
+                                    </NavLink>
+                                </li>
+                                <li className="page-item">
+                                    <NavLink to="/employees" className="nav-link">
+                                        Vendedores
+                                    </NavLink>
+                                </li>
+                                <li className="page-item">
+                                    <NavLink to="/tickets" className="nav-link">
+                                        Volantes
+                                    </NavLink>
+                                </li>
                             </ul>
                         </nav>
                     </div>

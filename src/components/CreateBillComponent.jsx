@@ -3,7 +3,17 @@ import React from "react";
 const CreateBillComponent = () => {
 
     const sendData = async(customer, employee, products, amount) =>{
-        
+        //https://rauls-hardware-store.herokuapp.com/ferreteriaRaul/guardarFactura
+        const myObject = {"nombreCliente": customer, 
+        "nombreVendedor":employee,
+        "productos": {
+
+        }}
+        const response = await fetch("https://rauls-hardware-store.herokuapp.com/ferreteriaRaul/guardarFactura",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body: myObject
+        })
     }
 
     const createBill = (e) =>{
@@ -18,6 +28,12 @@ const CreateBillComponent = () => {
         console.log(products);
         console.log(total);
         console.log("Productos seccionados: ", products.replace( /\n/g , ", " ).split( ", " ))
+        let newArray = []
+        for (let i = 0; i <= products.length-2; i+=2) {
+            const element = products[i];
+            
+        }
+        //console.log(Object.fromEntries([products]))
 
 
     }
