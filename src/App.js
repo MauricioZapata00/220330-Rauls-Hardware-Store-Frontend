@@ -10,6 +10,11 @@ import { useDispatch } from 'react-redux';
 import { setEnteringUser } from './redux/actions/UserActions';
 import Bills from './containers/Bills';
 import CreateBillComponent from './components/CreateBillComponent';
+import Customers from './containers/Customers';
+import Products from './containers/Products';
+import Suppliers from './containers/Suppliers';
+import Employees from './containers/Employees';
+import Tickets from './containers/Tickets';
 
 
 function App() {
@@ -27,6 +32,11 @@ function App() {
         <Route path='/alarms' element={<Alarms />}/>
         <Route path='/bills' element={<Bills />}/>
         <Route path='/createBill' element={<CreateBillComponent />}/>
+        <Route path='/customers' element={<Customers />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/suppliers' element={<Suppliers />} />
+        <Route path='/employees' element={<Employees />} />
+        <Route path='/tickets' element={<Tickets />} />
       </Routes>
     </div>
   );

@@ -1,0 +1,13 @@
+import React from "react";
+
+const Suppliers = () => {
+    return ( 
+        <div>
+            <h1>
+                Proveedores
+            </h1>
+        </div>
+    );
+}
+ 
+export default Suppliers;
