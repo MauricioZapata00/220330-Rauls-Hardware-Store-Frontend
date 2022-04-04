@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { jsPDF } from "jspdf";
 
 const TicketsComponent = () => {
 
@@ -19,7 +20,7 @@ const TicketsComponent = () => {
                     text += (tag + " :\t" + product + ":\t" + arrayOfValueProducts[counter2] + "\n")
                     counter2 += 1
                 })
-                counter +=1
+                counter += 1
             } else {
                 text += (tag + " :\t" + arrayOfValues[counter] + "\n")
                 counter += 1
@@ -30,18 +31,20 @@ const TicketsComponent = () => {
     }
 
     const renderedListOfTickets = tickets.map((ticket) => {
-        <div className="center-block" key={ticket.id}>
-            <div className="card">
-                <h5 className="card-header">$ {ticket.totalAPagar}</h5>
-                <div className="card-body">
-                    <h5 className="card-text">{JSON.stringify(ticket.productosAIngresar)}</h5>
-                    <h5 className="card-title">Proveedor: {ticket.nombreVendedor}</h5>
-                    <h5 className="card-title">NIT-Proveedor: {ticket.nitproveedor}</h5>
-                    <p className="card-text">Fecha: {ticket.fecha}</p>
-                    <a className="btn btn-primary" onClick={() => downloadPdf(ticket)}>Imprimir</a>
+        return (
+            <div className="center-block" key={ticket.id}>
+                <div className="card">
+                    <h5 className="card-header">$ {ticket.totalAPagar}</h5>
+                    <div className="card-body">
+                        <h5 className="card-text">{JSON.stringify(ticket.productosAIngresar)}</h5>
+                        <h5 className="card-title">Proveedor: {ticket.nombreVendedor}</h5>
+                        <h5 className="card-title">NIT-Proveedor: {ticket.nitproveedor}</h5>
+                        <p className="card-text">Fecha: {ticket.fecha}</p>
+                        <a className="btn btn-primary" onClick={() => downloadPdf(ticket)}>Imprimir</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        )
     })
     return (
         <div>

@@ -10,7 +10,7 @@ const Employees = () => {
     const getAllEmployees = async() =>{
         const response = await fetch("https://rauls-hardware-store.herokuapp.com/ferreteriaRaul/vendedores");
         const secondResponse = await response.json();
-        console.log(secondResponse);
+        //console.log(secondResponse);
         dispatch(setEmployees(secondResponse))
     }
 

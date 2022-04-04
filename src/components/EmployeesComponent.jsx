@@ -6,19 +6,21 @@ const EmployeesComponent = () => {
     const employees = useSelector((state) => state.allEmployees.employees)
 
     const renderedListOfEmployees = employees.map((employee) => {
-        <div className="col-6 col-md-4" key={employee.id}>
-            <div className="card" styles="width: 18rem;">
-                <div className="card-body">
-                    <h5 className="card-title">Nombre: {employee.nombreVendedor}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">Celular: {employee.celularVendedor}</h6>
-                    <p className="card-text">Cédula: {employee.cedulaVendedor}</p>
-                    <button type="button" className="btn btn-info">Editar</button>
-                    <button type="button" className="btn btn-danger">Eliminar</button>
+        return (
+            <div className="col-6 col-md-4" key={employee.id}>
+                <div className="card" styles="width: 18rem;">
+                    <div className="card-body">
+                        <h5 className="card-title">Nombre: {employee.nombreVendedor}</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">Celular: {employee.celularVendedor}</h6>
+                        <p className="card-text">Cédula: {employee.cedulaVendedor}</p>
+                        <button type="button" className="btn btn-info">Editar</button>
+                        <button type="button" className="btn btn-danger">Eliminar</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        )
     })
-    return ( 
+    return (
         <div>
             <div>
                 {
@@ -36,5 +38,5 @@ const EmployeesComponent = () => {
         </div>
     );
 }
- 
+
 export default EmployeesComponent;
